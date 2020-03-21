@@ -79,6 +79,7 @@ def main(argv):
 
     session = cluster.connect()
     session.set_keyspace(args.keyspace)
+    session.default_timeout = args.timeout
 
     cluster.shutdown()
     return 0
