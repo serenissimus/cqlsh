@@ -3,11 +3,8 @@
 from __future__ import with_statement
 
 import argparse
-import csv
-import getpass
 import os
 import sys
-
 from glob import glob
 from subprocess import check_output
 
@@ -68,14 +65,14 @@ def main(argv):
     auth_provider = PlainTextAuthProvider(
         username=args.username,
         password=args.password,
-        )
+    )
 
     cluster = Cluster(
         [args.host],
         auth_provider=auth_provider,
         port=args.port,
         connect_timeout=args.timeout,
-        )
+    )
 
     session = cluster.connect()
     session.set_keyspace(args.keyspace)
